@@ -1,0 +1,103 @@
+
+ 
+Activity 1 – 2 Average Tables
+
+Average sports critic score
+
+create table tbl_sports_critic_score
+( sports_critic_score double);
+
+insert overwrite table tbl_sports_critic_score
+select 
+avg(Critic_Score) as sports_critic_score
+from sales
+where sales.genre = 'Sports';
+
+Average shooter critic score
+
+create table tbl_shooter_critic_score
+( sports_critic_score double);
+
+insert overwrite table tbl_shooter_critic_score
+select 
+avg(Critic_Score) as shooter_critic_score
+from sales
+where sales.genre = 'Shooter';
+
+Activity 2 – 3 Statistic tables
+
+All Games
+
+create table tbl_sales_stats_allgames
+( Avg_Sales double,
+Min_Sales double,
+Max_Sales double
+ );
+insert overwrite table tbl_sales_stats_allgames
+select 
+avg(global_sales) as average_global_sales,
+min(global_sales) as min_global_sales,
+max(global_sales) as max_global_sales
+from sales
+
+Sport Games
+
+create table tbl_sales_stats_sports
+( Avg_Sales double,
+Min_Sales double,
+Max_Sales double
+ );
+insert overwrite table tbl_sales_stats_sports
+select 
+avg(global_sales) as average_global_sales,
+min(global_sales) as min_global_sales,
+max(global_sales) as max_global_sales
+from sales
+where sales.genre = 'Sports';
+
+Shooter Games
+
+create table tbl_sales_stats_shooter
+( Avg_Sales double,
+Min_Sales double,
+Max_Sales double
+ );
+insert overwrite table tbl_sales_stats_shooter
+select 
+avg(global_sales) as average_global_sales,
+min(global_sales) as min_global_sales,
+max(global_sales) as max_global_sales
+from sales
+where sales.genre = 'Shooter';
+
+
+
+Activity 3 – 2 count and totals tables
+
+Shooter Games
+
+create table tbl_sports_global_sales_shooter
+( global_sales double,
+Count int);
+
+insert overwrite table tbl_sports_global_sales_shooter
+select 
+sum(global_sales) as global_sales,
+count(global_sales) as count
+from sales
+where sales.genre = 'Shooter';
+
+Sports Games
+
+create table tbl_sports_global_sales_sports
+( global_sales double,
+Count int);
+
+insert overwrite table tbl_sports_global_sales_sports
+select 
+sum(global_sales) as global_sales,
+count(global_sales) as count
+from sales
+where sales.genre = 'Sports';
+
+
