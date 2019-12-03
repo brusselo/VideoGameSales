@@ -4,10 +4,10 @@ This project compares how critique scores for sports and shooter video game comp
 Our analsys has found that sports have a higher critique score and more global sales.
 Structure
 Data Folder
-> Contains the links to the source data
+- Contains the links to the source data
 Munge Folder
-> Source code for data transformation
+- Source code for data transformation
 Src Folder
-> Source code for data aggregations
+- Source code for data aggregations
 reports Folder
-> contains the project dashboard
+- contains the project dashboard
